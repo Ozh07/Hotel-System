@@ -3,12 +3,18 @@ package hotel_252;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
+
     DataBaseConnection dbCon = DataBaseConnection.getconnnection();
+    Statement stmt;
+
     public Login() {
         initComponents();
     }
@@ -106,22 +112,27 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordTEXTAREAActionPerformed
 
     private void EnterLOGINBUTTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterLOGINBUTTONActionPerformed
-        
         try {
-        PreparedStatement pstmt = dbCon.getCon().prepareStatement("UPDATE rooms SET Visitor_Name=?, In_Date =? , Out_Date = ? , State = 0 WHERE Room_No = ? && state = 1");
+
+            stmt = dbCon.getCon().createStatement();
+
+            String query = "SELECT * FROM login WHERE username = '" + UsernameTEXTAREA.getText() + "' AND password = '" + PasswordTEXTAREA.getText() + "'";
+            ResultSet result = stmt.executeQuery(query);
+            if (result.next()) {
+                JOptionPane.showMessageDialog(this, "Welcome " + UsernameTEXTAREA.getText() + ".");
+                main m = new main();
+                m.show();
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "User or Password is wrong.");
+            }
+            
+           
         } catch (SQLException ex) {
-        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         //------------------------------------------------------------------------------------------------------------
-        for (int i = 0; i < 3; i++) {
-        
-        }
-        /*        if (username[0].equals(UsernameTEXTAREA.getText()) && password[0].equals(PasswordTEXTAREA.getText())) {
-        System.out.println("gg");
-        }*/
-        main c = new main();
-        c.show();
-        dispose();
 
     }//GEN-LAST:event_EnterLOGINBUTTONActionPerformed
 
