@@ -17,6 +17,7 @@ public class Hotel_252 {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("gg");
+        System.out.println("Hello it's me rakan");
     }
     
 }
