@@ -18,6 +18,7 @@ public class Hotel_252 {
         // TODO code application logic here
         System.out.println("gg");
         System.out.println("me Z");
+        System.out.println("me z2");
         System.out.println("Hello it's me rakan");
     }
     
