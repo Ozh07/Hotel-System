@@ -15,15 +15,7 @@ public class Hotel_252 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("gg");
-<<<<<<< HEAD
-        System.out.println("hello");
-=======
-        System.out.println("me Z");
-        System.out.println("me z2");
->>>>>>> 0d258286463582e682e61f810f44e85691cbacc1
-        System.out.println("Hello it's me rakan");
+        System.out.println("afte bug");
     }
     
 }
