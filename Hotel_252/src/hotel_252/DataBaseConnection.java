@@ -12,7 +12,7 @@ public class DataBaseConnection {
     private Connection Con;
     private DataBaseConnection() {
         try {
-            this.Con=DriverManager.getConnection("jdbc:mariadb://localhost:3306/hotel_252", "root", "2037276");
+            this.Con=DriverManager.getConnection("jdbc:mariadb://localhost:3306/hotel_252", "root", "2036023");
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }

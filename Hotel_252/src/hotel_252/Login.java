@@ -122,12 +122,12 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Welcome " + UsernameTEXTAREA.getText() + ".");
                 main m = new main();
                 m.show();
+                m.NameReceptionist.setText(UsernameTEXTAREA.getText());
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "User or Password is wrong.");
             }
-            
-           
+
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }

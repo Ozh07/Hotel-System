@@ -6,7 +6,9 @@
 package hotel_252;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +17,9 @@ import java.util.logging.Logger;
  * @author Nero
  */
 public class main extends javax.swing.JFrame {
+
     DataBaseConnection dbCon = DataBaseConnection.getconnnection();
+
     /**
      * Creates new form main
      */
@@ -130,8 +134,12 @@ public class main extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         try {
-            PreparedStatement pstmt = dbCon.getCon().prepareStatement("SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   TABLE_SCHEMA='hotel_252'   AND TABLE_NAME='room_types'   AND REFERENCED_TABLE_NAME IS NOT NULL;");
-            System.out.println("");
+            Statement st = dbCon.getCon().createStatement();
+            ResultSet r = st.executeQuery("SELECT * FROM room_table");
+            r.last();
+            //Statement pstmt = dbCon.getCon().("SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   TABLE_SCHEMA='hotel_252'   AND TABLE_NAME='room_types'   AND REFERENCED_TABLE_NAME IS NOT NULL;");
+
+            System.out.println(r.getRow());
         } catch (SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -175,7 +183,7 @@ public class main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Booking;
     private javax.swing.JButton CancelBook;
-    private javax.swing.JLabel NameReceptionist;
+    public javax.swing.JLabel NameReceptionist;
     private javax.swing.JButton ShowAllRooms;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
