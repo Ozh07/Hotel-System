@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author Nero
  */
 public class main extends javax.swing.JFrame {
-
+    DataBaseConnection dbCon = DataBaseConnection.getconnnection();
     /**
      * Creates new form main
      */
@@ -128,16 +128,9 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        DataBaseConnection x = DataBaseConnection.getconnnection();
-        DataBaseConnection x1 = DataBaseConnection.getconnnection();
-        if (x==x1) {
-            System.out.println("hi");
-            if (x.getCon()==x1.getCon()) {
-                System.out.println("hii");
-            }
-        }
+        
         try {
-            PreparedStatement pstmt = x.getCon().prepareStatement("SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   TABLE_SCHEMA='hotel_252'   AND TABLE_NAME='room_types'   AND REFERENCED_TABLE_NAME IS NOT NULL;");
+            PreparedStatement pstmt = dbCon.getCon().prepareStatement("SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   TABLE_SCHEMA='hotel_252'   AND TABLE_NAME='room_types'   AND REFERENCED_TABLE_NAME IS NOT NULL;");
             System.out.println("");
         } catch (SQLException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);

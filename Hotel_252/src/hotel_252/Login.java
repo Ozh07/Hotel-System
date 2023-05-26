@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
-
+    DataBaseConnection dbCon = DataBaseConnection.getconnnection();
     public Login() {
         initComponents();
     }
@@ -106,21 +106,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordTEXTAREAActionPerformed
 
     private void EnterLOGINBUTTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterLOGINBUTTONActionPerformed
-        // Connection to database
+        
         try {
-            Connection con = DriverManager.getConnection("jdbc:mariadb://localhost:3306/hotel_252", "root", "2037276"); // must change password depend on the user who will use the code
-            PreparedStatement pstmt = con.prepareStatement("UPDATE rooms SET Visitor_Name=?, In_Date =? , Out_Date = ? , State = 0 WHERE Room_No = ? && state = 1"); 
-            
+        PreparedStatement pstmt = dbCon.getCon().prepareStatement("UPDATE rooms SET Visitor_Name=?, In_Date =? , Out_Date = ? , State = 0 WHERE Room_No = ? && state = 1");
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         //------------------------------------------------------------------------------------------------------------
         for (int i = 0; i < 3; i++) {
+        
+        }
+        /*        if (username[0].equals(UsernameTEXTAREA.getText()) && password[0].equals(PasswordTEXTAREA.getText())) {
+        System.out.println("gg");
+        }*/
+        main c = new main();
+        c.show();
+        dispose();
 
-        }
-        if (username[0].equals(UsernameTEXTAREA.getText()) && password[0].equals(PasswordTEXTAREA.getText())) {
-            System.out.println("gg");
-        }
     }//GEN-LAST:event_EnterLOGINBUTTONActionPerformed
 
     /**
