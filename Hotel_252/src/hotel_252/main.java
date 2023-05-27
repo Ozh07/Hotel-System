@@ -10,8 +10,10 @@ import java.text.SimpleDateFormat;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -67,6 +69,11 @@ public class main extends javax.swing.JFrame {
         CancelBook.setText("CANCLE BOOK");
 
         lockRoom.setText("LOCK ROOM");
+        lockRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lockRoomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,6 +168,37 @@ public class main extends javax.swing.JFrame {
     private void getInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_getInfoActionPerformed
+
+    private void lockRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lockRoomActionPerformed
+        
+        try {
+            LockRoom R = new LockRoom();
+            Statement stmt = dbCon.getCon().createStatement();
+            DefaultTableModel LuckRoom = (DefaultTableModel) R.RoomTable.getModel();
+            LuckRoom.setRowCount(0);
+            ResultSet result = stmt.executeQuery("SELECT * FROM Room_table");
+
+            while (result.next()) {
+                
+                int room_number = result.getInt("Room_No");
+                String room_Type = result.getString("Room_Type");
+                int state= result.getInt("State");
+
+                ArrayList dbData = new ArrayList();
+                dbData.add(room_number);
+                dbData.add(room_Type);
+                dbData.add(state);
+
+                LuckRoom.addRow(dbData.toArray());
+                
+            }
+            R.show();
+            dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(LockRoom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_lockRoomActionPerformed
 
     /**
      * @param args the command line arguments
