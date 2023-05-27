@@ -28,12 +28,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Component id="NameReceptionist" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="hotelName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Component id="currentDate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -47,8 +48,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="NameReceptionist" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hotelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="currentDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
@@ -62,6 +63,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="NameReceptionist">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
       <AuxValues>
@@ -75,13 +79,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="ShowAllRooms" min="-2" pref="237" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="237" max="-2" attributes="0"/>
+                      <Component id="booking" min="-2" pref="237" max="-2" attributes="0"/>
+                      <Component id="lockRoom" min="-2" pref="237" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="CancelBook" min="-2" pref="237" max="-2" attributes="0"/>
-                      <Component id="Booking" min="-2" pref="237" max="-2" attributes="0"/>
+                      <Component id="getInfo" min="-2" pref="237" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -91,56 +95,65 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ShowAllRooms" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="Booking" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="booking" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="getInfo" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="CancelBook" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="lockRoom" alignment="3" min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="ShowAllRooms">
+        <Component class="javax.swing.JButton" name="booking">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Show All Rooms"/>
+            <Property name="text" type="java.lang.String" value="BOOKING"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Booking">
+        <Component class="javax.swing.JButton" name="getInfo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Booking"/>
+            <Property name="text" type="java.lang.String" value="GET INFO"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getInfoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CancelBook">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cancel Book"/>
+            <Property name="text" type="java.lang.String" value="CANCLE BOOK"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="lockRoom">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Get Room or Customer Info"/>
+            <Property name="text" type="java.lang.String" value="LOCK ROOM"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
+        <Property name="text" type="java.lang.String" value="LOGOUT"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="hotelName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="HOTEL 252"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="currentDate">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
